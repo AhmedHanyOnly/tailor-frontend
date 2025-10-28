@@ -1,0 +1,39 @@
+import { Outfit, Cairo } from "next/font/google";
+import "./globals.css";
+
+import { Toaster } from "sonner";
+// import ProtectedRoute from '../middleware/ProtectedRoute';
+import QueryProvider from "../components/QueryProvider";
+import AppHeader from "../layout/AppHeader";
+import AppFooter from "../layout/AppFooter";
+import SmoothScroll from "@/components/animation/SmoothScroll";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+});
+
+const cairo = Cairo({
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600", "700"], // حسب ما تحتاج
+});
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="ar" dir="rtl">
+      <body className={`${outfit.className} ${cairo.className} `}>
+        {/* <ProtectedRoute> */}
+        <QueryProvider>
+          <Toaster position="top-right" richColors />
+          {/* <SmoothScroll> */}
+            <AppHeader />
+            <div className="container mx-auto px-4 md:px-6">
+            {children}
+            </div>
+            <AppFooter />
+          {/* </SmoothScroll> */}
+        </QueryProvider>
+        {/* </ProtectedRoute> */}
+      </body>
+    </html>
+  );
+}
