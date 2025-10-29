@@ -87,7 +87,7 @@ export default function Home() {
     statsRefs.current.forEach((el, i) => {
       gsap.fromTo(
         el,
-        { opacity: 0, y: 20 },
+        { opacity: 0, y: 50 },
         { opacity: 1, y: 0, delay: i * 0.15, duration: 0.6 }
       );
     });
