@@ -25,7 +25,7 @@ const NotFoundPage = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen bg-red-900 text-white px-4">
+    <div className="flex items-center justify-center h-screen  text-gray-900 px-4">
       <div className="text-center max-w-lg">
         <h1
           ref={titleRef}
