@@ -110,7 +110,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-4 sm:p-6">
-      <h1 className="text-3xl font-bold mb-8 text-[var(--color-primary)] text-center md:text-start">
+      <h1 className="text-3xl font-bold mb-8 text-gray-900 text-center md:text-start">
         مرحبا بك في لوحة التحكم
       </h1>
 
@@ -210,14 +210,26 @@ export default function Home() {
             {latestCustomers.map((customer, idx) => (
               <div
                 key={idx}
-                className="bg-white p-3 sm:p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 text-center sm:text-start"
+                className="flex items-center gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-gray-100 shadow hover:shadow-md transition-all duration-300"
               >
-                <h3 className="font-semibold text-[var(--color-primary)]">
-                  {customer.name}
-                </h3>
-                <p className="text-sm text-blue-800 break-words">
-                  {customer.email}
-                </p>
+                <img
+                  src={customer.image || "/image.webp"}
+                  alt={customer.name}
+                  className="w-12 h-12 rounded-full object-cover border border-gray-200"
+                />
+                <div className="flex-1">
+                  <h3 className="font-semibold text-[var(--color-primary)] text-lg mb-1">
+                    {customer.name}
+                  </h3>
+                  <p className="text-sm text-gray-600 break-words">
+                    {customer.email}
+                  </p>
+                </div>
+                <div className="text-end">
+                  <span className="text-sm font-medium text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">
+                    {customer.points ?? 0} نقطة
+                  </span>
+                </div>
               </div>
             ))}
           </div>

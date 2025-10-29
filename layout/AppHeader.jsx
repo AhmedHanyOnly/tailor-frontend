@@ -32,9 +32,10 @@ const AppHeader = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-wrap items-center justify-between px-4 md:px-6 py-3 border-b border-gray-700">
           {/* اللوجو */}
-          <div className="text-2xl font-bold cursor-pointer flex-shrink-0">
-            <Link href="/">
+          <div className="text-2xl font-bold cursor-pointer flex-shrink-0 ">
+            <Link href="/" className="flex  items-center">
               <Image src="/logo.png" alt="logo" width={60} height={60} />
+              <h1 className="">الخياط</h1>
             </Link>
           </div>
 
