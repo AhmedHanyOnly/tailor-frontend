@@ -9,6 +9,9 @@ import {
   HiChatAlt2,
   HiBell,
   HiLogout,
+  HiCog,
+  HiUsers,
+  HiUser,
 } from "react-icons/hi";
 import Image from "next/image";
 import { NotificationNav } from "@/components/ui/NotificationNav";
@@ -21,9 +24,9 @@ const AppHeader = () => {
 
   const navLinks = [
     { href: "/", name: "الرئيسية", icon: <HiHome /> },
-    { href: "/products", name: "المنتجات", icon: <HiShoppingBag /> },
-    { href: "/services", name: "الخدمات", icon: <HiChatAlt2 /> },
-    { href: "/contact", name: "تواصل معنا", icon: <HiChatAlt2 /> },
+    { href: "/settings", name: "الاعدادات", icon: <HiCog /> },
+    { href: "/clients", name: "العملاء", icon: <HiUsers /> },
+    { href: "/tailors", name: "الخياطين", icon: <HiUser /> },
   ];
 
   return (
