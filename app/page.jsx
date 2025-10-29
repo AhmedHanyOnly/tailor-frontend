@@ -206,27 +206,27 @@ export default function Home() {
           <h2 className="text-lg mb-4 text-[var(--color-primary)] font-bold text-center md:text-start">
             أحدث العملاء
           </h2>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             {latestCustomers.map((customer, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-4 bg-white p-4 sm:p-5 rounded-2xl border border-gray-100 shadow hover:shadow-md transition-all duration-300"
+                className="flex items-center gap-3 bg-white p-3 rounded-xl border border-gray-100 shadow hover:shadow-md transition-all duration-300"
               >
                 <img
                   src={customer.image || "/image.webp"}
                   alt={customer.name}
-                  className="w-12 h-12 rounded-full object-cover border border-gray-200"
+                  className="w-10 h-10 rounded-full object-cover border border-gray-200"
                 />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-[var(--color-primary)] text-lg mb-1">
+                  <h3 className="font-semibold text-[var(--color-primary)] text-base mb-0.5">
                     {customer.name}
                   </h3>
-                  <p className="text-sm text-gray-600 break-words">
+                  <p className="text-xs text-gray-600 break-words">
                     {customer.email}
                   </p>
                 </div>
                 <div className="text-end">
-                  <span className="text-sm font-medium text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full">
+                  <span className="text-xs font-medium text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded-full">
                     {customer.points ?? 0} نقطة
                   </span>
                 </div>
