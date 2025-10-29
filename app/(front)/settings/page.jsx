@@ -41,7 +41,7 @@ const SiteSettingsPage = () => {
     <div className="mx-auto max-w-8xl p-4 md:p-6">
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
         <h2
-          className="text-3xl font-bold  text-gray-900 text-center md:text-start"
+          className="text-2xl font-bold  text-gray-900 text-center md:text-start"
         >
           إعدادات الموقع
         </h2>

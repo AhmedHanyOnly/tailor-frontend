@@ -1,54 +1,51 @@
 "use client";
 import { useState } from "react";
-import ClientForm from "./components/ClientForm";
-import ClientTable from "./components/ClientTable";
-import ClientShow from "./components/ClientShow";
+import TailorForm from "./components/Form";
+import TailorTable from "./components/Table";
+import TailorShow from "./components/Show";
 
-export default function ClientPage() {
+export default function TailorPage() {
   const [mode, setMode] = useState("table");
-  const [selectedClient, setSelectedClient] = useState(null);
+  const [selectedTailor, setSelectedTailor] = useState(null);
 
-  // بيانات تجريبية
-  const clients = [
+  // بيانات تجريبية للخياطين
+  const tailors = [
     {
       id: 1,
-      name: "أحمد",
+      name: "خياط 1",
       phone: "01000000001",
-      item: "قميص",
-      date: "28-10-2025",
-      status: "جاهز",
-      tailor: "خياط 1",
+      specialty: "قميص",
+      experience: "5 سنوات",
+      status: "نشط",
     },
     {
       id: 2,
-      name: "محمد",
+      name: "خياط 2",
       phone: "01000000002",
-      item: "بنطال",
-      date: "28-10-2025",
-      status: "قيد التنفيذ",
-      tailor: "خياط 2",
+      specialty: "بنطال",
+      experience: "3 سنوات",
+      status: "نشط",
     },
     {
       id: 3,
-      name: "علي",
+      name: "خياط 3",
       phone: "01000000003",
-      item: "جاكيت",
-      date: "28-10-2025",
-      status: "جاهز",
-      tailor: "خياط 3",
+      specialty: "جاكيت",
+      experience: "7 سنوات",
+      status: "متوقف مؤقتاً",
     },
   ];
 
   return (
     <div className="p-6 space-y-6">
-      <h1 className="text-2xl font-bold">إدارة العملاء</h1>
+      <h1 className="text-2xl font-bold">إدارة الخياطين</h1>
 
       {mode === "table" && (
         <button
           onClick={() => setMode("form")}
           className="inline-flex items-center justify-center font-medium gap-2 rounded-lg transition px-5 py-3.5 text-sm bg-[var(--color-primary)] text-white shadow-theme-xs hover:bg-[#5f6de0]"
         >
-          إضافة عميل
+          إضافة خياط
         </button>
       )}
 
@@ -62,32 +59,31 @@ export default function ClientPage() {
             العودة للقائمة
           </button>
 
-          <ClientForm />
+          <TailorForm />
         </div>
       )}
 
       {/* عرض المعاينة */}
-      {mode === "show" && selectedClient && (
+      {mode === "show" && selectedTailor && (
         <div>
           <button
             onClick={() => setMode("table")}
-            className="mb-4 bg-gray-300 text-gray-700 px-3 py-1 rounded hover:bg-gray-400 transition"
+            className="mb-4 inline-flex items-center justify-center font-medium gap-2 rounded-lg transition px-5 py-3.5 text-sm bg-gray-200 text-gray-700 shadow-sm hover:bg-gray-300"
           >
             العودة للقائمة
           </button>
-          <ClientShow
-            client={selectedClient}
-            onClose={() => setMode("table")}
+          <TailorShow
+            tailor={selectedTailor}
           />
         </div>
       )}
 
-      {/* عرض الجدول فقط في الوضع table */}
+      {/* عرض الجدول */}
       {mode === "table" && (
-        <ClientTable
-          clients={clients}
-          onPreview={(client) => {
-            setSelectedClient(client);
+        <TailorTable
+          tailors={tailors}
+          onPreview={(tailor) => {
+            setSelectedTailor(tailor);
             setMode("show");
           }}
         />
